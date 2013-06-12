@@ -1,9 +1,9 @@
 package eu.hurion.vaadin.heroku.it;
 
-import com.vaadin.Application;
+import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.*;
 
-public class SessionTestApplication extends Application {
+public class SessionTestApplication extends UI {
 
     public static final String BUTTON_CAPTION = "Click me";
     public static final String BUTTON_ID = "hello-button";
@@ -11,11 +11,11 @@ public class SessionTestApplication extends Application {
     public static final String NAME_ID = "name";
 
     @Override
-    public void init() {
-        setMainWindow(buildContent());
+    protected void init(VaadinRequest vaadinRequest) {
+        setContent(buildContent());
     }
 
-    private Window buildContent() {
+    private AbstractLayout buildContent() {
         final FormLayout formLayout = new FormLayout();
         formLayout.setSpacing(true);
         formLayout.setSizeUndefined();
@@ -39,10 +39,7 @@ public class SessionTestApplication extends Application {
         vl.addComponent(formLayout);
         vl.setComponentAlignment(formLayout, Alignment.MIDDLE_CENTER);
         vl.setSizeFull();
-        final Window window = new Window();
-        window.setContent(vl);
 
-        return window;
+        return vl;
     }
-
 }

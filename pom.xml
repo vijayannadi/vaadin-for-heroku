@@ -13,11 +13,11 @@
     <packaging>jar</packaging>
     <name>Vaadin for Heroku</name>
     <description>
-        A library to run vaadin on the Heroku platform by starting an embedded tomcat container and managing session
+        A library to run vaadin7 on the Heroku platform by starting an embedded tomcat container and managing session
         using memcached.
     </description>
 
-    <url>https://github.com/nhurion/vaadin-for-heroku</url>
+    <url>https://github.com/vijayannadi/vaadin7-for-heroku.git</url>
 
     <licenses>
         <license>
@@ -34,27 +34,32 @@
     </scm>
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/nhurion/vaadin-for-heroku/issues</url>
+        <url>https://github.com/vijayannadi/vaadin7-for-heroku/issues</url>
     </issueManagement>
     <ciManagement>
         <system>travis</system>
-        <url>https://travis-ci.org/#!/nhurion/vaadin-for-heroku</url>
+        <url>https://travis-ci.org/#!/vijayannadi/vaadin7-for-heroku</url>
     </ciManagement>
     <developers>
         <developer>
             <id>nhurion</id>
             <name>Nicolas Hurion</name>
         </developer>
+        <developer>
+            <id>vannadi</id>
+            <name>Vijay Annadi</name>
+        </developer>
     </developers>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <tomcat.version>7.0.29</tomcat.version>
+        <vaadin.version>7.0.2</vaadin.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.bsb.common.vaadin</groupId>
-            <artifactId>com.bsb.common.vaadin.embed</artifactId>
+            <artifactId>com.bsb.common.vaadin7.embed</artifactId>
         </dependency>
         <dependency>
             <groupId>de.javakaffee.msm</groupId>
@@ -121,8 +126,24 @@
         <dependencies>
             <dependency>
                 <groupId>com.vaadin</groupId>
-                <artifactId>vaadin</artifactId>
-                <version>6.8.2</version>
+                <artifactId>vaadin-server</artifactId>
+                <version>${vaadin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-client-compiled</artifactId>
+                <version>${vaadin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-client</artifactId>
+                <version>${vaadin.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-themes</artifactId>
+                <version>${vaadin.version}</version>
             </dependency>
             <dependency>
                 <groupId>ch.qos.logback</groupId>
@@ -131,8 +152,8 @@
             </dependency>
             <dependency>
                 <groupId>com.bsb.common.vaadin</groupId>
-                <artifactId>com.bsb.common.vaadin.embed</artifactId>
-                <version>0.4</version>
+                <artifactId>com.bsb.common.vaadin7.embed</artifactId>
+                <version>0.5</version>
             </dependency>
             <dependency>
                 <groupId>de.javakaffee.msm</groupId>

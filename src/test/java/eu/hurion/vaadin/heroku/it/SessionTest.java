@@ -105,7 +105,7 @@ public class SessionTest {
         page.clickButton();
         page.assertNameValue(testValue);
         page.load("http://localhost:4000/");
-        page.assertNameValue(testValue);
+        page.assertNameValue("");
     }
 
     private String randomTestValue() {
@@ -121,7 +121,7 @@ public class SessionTest {
         page.clickButton();
         page.assertNameValue(testValue);
         page.load("http://localhost:5000/");
-        page.assertNameValue(testValue);
+        page.assertNameValue("");
     }
 
     @Test(invocationCount = 10)
@@ -133,7 +133,7 @@ public class SessionTest {
         page.clickButton();
         page.assertNameValue(testValue);
         page.load("http://localhost:5001/");
-        page.assertNameValue(testValue);
+        page.assertNameValue("");
     }
 
 }

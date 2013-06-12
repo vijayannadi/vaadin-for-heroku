@@ -21,7 +21,7 @@ public class SessionTestPage {
 
     public SessionTestPage(final WebDriver driver) {
         this.driver = driver;
-        wait = new FluentWait<WebDriver>(driver).withTimeout(1, TimeUnit.SECONDS)
+        wait = new FluentWait<WebDriver>(driver).withTimeout(11, TimeUnit.SECONDS)
                 .ignoring(NoSuchElementException.class,
                         ElementNotFoundException.class);
 

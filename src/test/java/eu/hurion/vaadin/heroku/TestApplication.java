@@ -1,22 +1,15 @@
 package eu.hurion.vaadin.heroku;
 
-import com.vaadin.Application;
+import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.ComponentContainer;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.Window;
 
-public class TestApplication extends Application {
+public class TestApplication extends UI {
 
     public static final String TEST_LABEL = "test";
     public static final String TEST_LABEL_ID = "test-label";
-
-    @Override
-    public void init() {
-        final Window window = new Window();
-        setMainWindow(window);
-        window.setContent(buildContent());
-    }
 
     private ComponentContainer buildContent() {
         final VerticalLayout layout = new VerticalLayout();
@@ -24,5 +17,10 @@ public class TestApplication extends Application {
         testLabel.setDebugId(TEST_LABEL_ID);
         layout.addComponent(testLabel);
         return layout;
+    }
+
+    @Override
+    protected void init(VaadinRequest vaadinRequest) {
+        setContent(buildContent());
     }
 }
